@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: "Ping {{ inventory_hostname }}"
+      ping:
+
+    - name: "Download and install Docker"
+      script: ~/tf_project/install_docker.sh
+
+    - name: "Download and install Jenkins"
+      script: ~/tf_project/install_jenkins.sh
+
+    - name: "Configure the Jenkins EC2"
+      script: ~/tf_project/jenkins_config.sh
+
+    
