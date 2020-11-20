@@ -46,7 +46,7 @@ resource "aws_db_instance" "testdb" {
   password               = var.db_password
   vpc_security_group_ids = [aws_security_group.rds_sg.id]
   db_subnet_group_name   = aws_db_subnet_group.db_subnet.id
-  skip_final_snapshot = true
+  skip_final_snapshot    = true
 }
 
 resource "aws_db_instance" "k8sdb" {
@@ -60,11 +60,15 @@ resource "aws_db_instance" "k8sdb" {
   password               = var.db_password
   vpc_security_group_ids = [aws_security_group.rds_sg.id]
   db_subnet_group_name   = aws_db_subnet_group.db_subnet.id
-  skip_final_snapshot = true
+  skip_final_snapshot    = true
 }
 
-resource "null_resource" "run_ansible" {
+resource "null_resource" "provision_ec2_instances" {
   provisioner "local-exec" {
-    command = "ansible-playbook -i $(terraform output ec2_ip),  playbook.yaml"
+    command = "ansible-playbook -i $(terraform output jenkins_ip),  jenkins-playbook.yaml"
+  }
+
+  provisioner "local-exec" {
+    command = "ansible-playbook -i $(terraform output pytest_ip),  pytest-playbook.yaml"
   }
 }

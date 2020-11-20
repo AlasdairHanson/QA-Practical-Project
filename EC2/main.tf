@@ -1,6 +1,5 @@
 resource "aws_security_group" "web_sg" {
-  name        = "DefaultSGWeb"
-  description = "Allow SSH"
+  name        = "web_sg"
   vpc_id      = var.vpc_id
 
   ingress {
@@ -31,6 +30,15 @@ resource "aws_key_pair" "demo_key" {
 }
 
 resource "aws_instance" "jenkins_ec2" {
+  ami                         = var.ec2_ami
+  instance_type               = var.ec2_type
+  key_name                    = aws_key_pair.demo_key.key_name
+  associate_public_ip_address = true
+  subnet_id                   = var.subnet_a_id 
+  vpc_security_group_ids     = [aws_security_group.web_sg.id]
+}
+
+resource "aws_instance" "pytest_ec2" {
   ami                         = var.ec2_ami
   instance_type               = var.ec2_type
   key_name                    = aws_key_pair.demo_key.key_name

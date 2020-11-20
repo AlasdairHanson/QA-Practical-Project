@@ -1,0 +1,8 @@
+- hosts: all
+  become: true
+  tasks:
+    - name: "Download and install Docker-Compose"
+      script: ~/tf_project/install_docker-compose.sh
+
+    - name: "Download and install MySql"
+      script: ~/tf_project/install_mysql.sh
