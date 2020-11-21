@@ -21,6 +21,7 @@ resource "aws_security_group" "rds_sg" {
     from_port = 3306
     to_port   = 3306
     protocol  = "tcp"
+    cidr_blocks = [var.open_internet]
   }
 
   egress {
@@ -70,5 +71,9 @@ resource "null_resource" "provision_ec2_instances" {
 
   provisioner "local-exec" {
     command = "ansible-playbook -i $(terraform output pytest_ip),  pytest-playbook.yaml"
+  }
+
+  provisioner "scp docker-compose to pytest vm" {
+    command = "scp 'docker-compose.yaml' $(terraform output pytest_ip):/home/ubuntu"
   }
 }
