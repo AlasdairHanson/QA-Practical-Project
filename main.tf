@@ -64,6 +64,7 @@ resource "aws_db_instance" "k8sdb" {
   skip_final_snapshot    = true
 }
 
+//-------ANSIBLE-----------
 resource "null_resource" "provision_ec2_instances" {
   provisioner "local-exec" {
     command = "ansible-playbook -i $(terraform output jenkins_ip),  jenkins-playbook.yaml"
@@ -73,7 +74,7 @@ resource "null_resource" "provision_ec2_instances" {
     command = "ansible-playbook -i $(terraform output pytest_ip),  pytest-playbook.yaml"
   }
 
-  provisioner "scp docker-compose to pytest vm" {
+  provisioner "local-exec" {
     command = "scp 'docker-compose.yaml' $(terraform output pytest_ip):/home/ubuntu"
   }
 }
