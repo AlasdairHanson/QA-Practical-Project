@@ -35,11 +35,17 @@ In addition to the brief, I am also required to include:
 ## Infrastructure
 ---
 
-The application is a flask application running on two micro-services: a frontend and a backend. The infrastructure is designed to automatically facilitate the resources needed to run the services on a machine and connect them to a database with little user configuration. 
+The application is a flask application running on two micro-services: a frontend and a backend. The infrastructure is designed to automatically facilitate the resources needed to run the services and connect them to a database with little user configuration. 
+
+For the project, the infrastructure utilises Amazon Web Services for its components. It uses Elastic Cloud Compute (EC2) virtual machines to run different software, as well as Relational Database Service to contain databases. A Virtual Private Cloud is also utilised to define a private network for hosting the the other services.
+
+![Imgur](https://i.imgur.com/CyvLUvR.png)
 
 ### Terraform
 
 Terraform is an infrastructure provisioning tool that automatically creates resources such as virtual machines and database solutions. It removes the need to manually create each resource needed in the DevOps pipeline by programmatically defining their attributes in a single file using an automation language such as YAML. 
+
+Terraform runs from a single main.tf file that contains a list of resources and their configuration. Solutions such as EC2 and RDS instances are defined as an individual resource where they are given specific attributes. Other resources such as AWS Virtual Private Cloud can be created and linked to the EC2 or RDS instances in order to host them.
 
 ![Imgur](https://i.imgur.com/tm5OJA9.png)
 
@@ -57,6 +63,8 @@ RDS instances running
 
 Ansible is a software provisioning and application management tool that securely connects to virtual machines and configures its resources. It reduces the need for the user to manually SSH into a machine and configure the software themselves. Ansible can be triggered by Terraform to provision the resources it creates, meaning that resources such as virtual machines can be created and configured in one action.
 
+In the project, Ansible is responsible for running an SSH command into the EC2 instances that Terraform creates and installs software needed to run them. For the 
+
 ![Imgur](https://i.imgur.com/Wt79ea9.png)
 
 Resource in Terraform for automatically deploying Ansible
@@ -67,7 +75,7 @@ Ansible code running in the terminal. Each task corresponds to a particular reso
 
 ### Jenkins
 
-Jenkins is an automation server that automatically builds, tests and deploys software. It executes instructions inside a Jenkinsfile that defines a list of steps, or "pipeline", to create software.
+Jenkins is an automation server that automatically builds, tests and deploys software. It executes instructions inside a Jenkinsfile that defines a list of steps, or "pipeline", to create software. Terraform spins up an EC2 where Jenkins can then be run from.
 
 The first step in the pipeline is to SSH into the PyTest VM and execute a ./deploy script that contains the commands for putting the Git repo where the YAML files are located. It then executes a docker-compose command that creates the images and then execs into the images to run the Pytests.
 
@@ -75,7 +83,7 @@ The first step in the pipeline is to SSH into the PyTest VM and execute a ./depl
 
 ### PyTest
 
-PyTest utilises integration testing to evaluate the functionality of the frontend and backend micro-services. It simulates a GET request to query the database and retrieve its contents.
+PyTest utilises integration testing to evaluate the functionality of the frontend and backend micro-services. It simulates a GET request to query the user database and retrieve its contents.
 
 ![Imgur](https://i.imgur.com/0lsqc69.png)
 
