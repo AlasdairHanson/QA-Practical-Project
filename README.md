@@ -35,7 +35,7 @@ In addition to the brief, I am also required to include:
 ## Infrastructure
 ---
 
-The application is a flask application running on two micro-services: a frontend and a backend.
+The application is a flask application running on two micro-services: a frontend and a backend. The infrastructure is designed to automatically facilitate the resources needed to run the services on a machine and connect them to a database with little user configuration. 
 
 ### Terraform
 
