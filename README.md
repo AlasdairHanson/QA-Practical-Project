@@ -41,6 +41,8 @@ For the project, the infrastructure utilises Amazon Web Services for its compone
 
 ![Imgur](https://i.imgur.com/CyvLUvR.png)
 
+The image above shows a diagram of the infrastructure and how each component interacts. Terraform creates the EC2 and RDS instances, and Ansible follows up with software installation such as Kubernetes, Jenkins and PyTest.
+
 ### Terraform
 
 Terraform is an infrastructure provisioning tool that automatically creates resources such as virtual machines and database solutions. It removes the need to manually create each resource needed in the DevOps pipeline by programmatically defining their attributes in a single file using an automation language such as YAML. 
