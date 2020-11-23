@@ -79,7 +79,7 @@ Ansible code running in the terminal. Each task corresponds to a particular reso
 
 Jenkins is an automation server that automatically builds, tests and deploys software. It executes instructions inside a Jenkinsfile that defines a list of steps, or "pipeline", to create software. Terraform spins up an EC2 where Jenkins can then be run from.
 
-The first step in the pipeline is to SSH into the PyTest VM and execute a ./deploy script that contains the commands for putting the Git repo where the YAML files are located. It then executes a docker-compose command that creates the images and then execs into the images to run the Pytests.
+The first step in the pipeline is to SSH into the PyTest VM and execute a ./deploy script that contains the commands for installing the Git repo containing the frontend and backend YAML files. It then executes a docker-compose command that creates the images and then execs into the images to run the Pytests.
 
 The second step is to exprt environment variables which are the test database and production database URIs for kubernetes to use when configuring the cluster.
 
