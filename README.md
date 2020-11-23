@@ -65,7 +65,7 @@ RDS instances running
 
 Ansible is a software provisioning and application management tool that securely connects to virtual machines and configures its resources. It reduces the need for the user to manually SSH into a machine and configure the software themselves. Ansible can be triggered by Terraform to provision the resources it creates, meaning that resources such as virtual machines can be created and configured in one action.
 
-In the project, Ansible is responsible for running an SSH command into the EC2 instances that Terraform creates and installs software needed to run them. For the 
+In the project, Ansible is responsible for running an SSH command into the EC2 instances that Terraform creates and installs software needed to run them. 
 
 ![Imgur](https://i.imgur.com/Wt79ea9.png)
 
