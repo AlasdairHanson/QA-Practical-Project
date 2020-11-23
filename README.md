@@ -3,7 +3,7 @@
 ### Resources
 ---
 - Presentation: https://docs.google.com/presentation/d/12R2lT8XvUO6oy493f7I_fcXP0ECTgpIrUo1grBTOzD0/edit#slide=id.ga3bad5fd7a_0_87
-- Trello: https://alasdairh.atlassian.net/secure/RapidBoard.jspa?rapidView=7&projectKey=QA&selectedIssue=QA-5
+- Jira Board: https://alasdairh.atlassian.net/secure/RapidBoard.jspa?rapidView=8&projectKey=QPP&selectedIssue=QPP-10
 
 ## Contents
 ---
