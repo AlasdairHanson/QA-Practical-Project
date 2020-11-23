@@ -2,10 +2,10 @@
   become: true
   tasks:
     - name: "Download and install Docker-Compose"
-      script: ~/tf_project/install_docker-compose.sh
+      script: ~/tf_project/Install_Scripts/install_docker-compose.sh
 
     - name: "Download and install MySql"
-      script: ~/tf_project/install_mysql.sh
+      script: ~/tf_project/Install_Scripts/install_mysql.sh
 
     - name: "Download and install Docker"
-    script: ~/tf_project/install_docker.sh
+      script: ~/tf_project/Install_Scripts/install_docker.sh

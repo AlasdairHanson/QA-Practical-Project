@@ -78,11 +78,4 @@ resource "null_resource" "provision_ec2_instances" {
     command = "scp 'docker-compose.yaml' $(terraform output pytest_ip):/home/ubuntu"
   }
 
-  provisioner "local-exec" {
-    command = "scp 'frontend.yaml' $(terraform output jenkins_ip):/home/jenkins"
-  }
-
-  provisioner "local-exec" {
-    command = "scp 'backend.yaml' $(terraform output jenkins_ip):/home/jenkins"
-  }
 }
