@@ -63,7 +63,7 @@ Jenkins is an automation server that automatically builds, tests and deploys sof
 Jira was used to manage the workflow of the project (pictured below). The link to this board can be found here:
 https://alasdairh.atlassian.net/secure/RapidBoard.jspa?rapidView=8&projectKey=QPP&selectedIssue=QPP-11
 
-![Imgur](https://imgur.com/PYZKvym)
+![Imgur](https://i.imgur.com/PYZKvym.png)
 
 The Jira board is based on a Kanban process which helps visualise the state of tasks and how far they are along in development. The flow of tasks goes from left to right, from their point of conception in the backlog, to their completion and implementation. The board contains cards showing different information about what needs to be done and come in various forms:
 
