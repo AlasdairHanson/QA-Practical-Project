@@ -81,6 +81,10 @@ Jenkins is an automation server that automatically builds, tests and deploys sof
 
 The first step in the pipeline is to SSH into the PyTest VM and execute a ./deploy script that contains the commands for putting the Git repo where the YAML files are located. It then executes a docker-compose command that creates the images and then execs into the images to run the Pytests.
 
+The second step is to exprt environment variables which are the test database and production database URIs for kubernetes to use when configuring the cluster.
+
+The third step is to deploy frontend.yaml and backend.yaml files which pull the images uploaded to Dockerhub from the Pytest EC2 and containerise them.
+
 ![Imgur](https://i.imgur.com/N9I1nn1.png)
 
 ### PyTest
