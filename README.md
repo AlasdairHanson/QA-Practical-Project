@@ -96,9 +96,9 @@ https://alasdairh.atlassian.net/secure/RapidBoard.jspa?rapidView=8&projectKey=QP
 The Jira board is based on a Kanban process which helps visualise the state of tasks and how far they are along in development. The flow of tasks goes from left to right, from their point of conception in the backlog, to their completion and implementation. The board contains cards showing different information about what needs to be done and come in various forms:
 
 * *Epics*:
-   A larger body of work that can be broken down into user stories.
+   A larger body of work that can be broken down into tasks.
 * *Tasks*:
-   Individual elements of a user story describing what needs to be done to meet it's requirements.
+   Individual elements of an epic describing what needs to be done to meet it's requirements.
 
 ## Authors
 ---
